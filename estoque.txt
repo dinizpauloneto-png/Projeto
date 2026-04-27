@@ -1,0 +1,5 @@
+ celular; 60;      2000 
+ celular; 60;      2000 
+carro;500;60
+barco;2;100000
+carro;20;120000
