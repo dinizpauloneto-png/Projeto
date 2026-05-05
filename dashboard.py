@@ -42,12 +42,12 @@ def main():
     )
     custo_lucro_data = data_filtrada(['Segmento'])[['COGS', 'Lucro']].sum().resert_indes().melt(
         id_vars = 'Segmento', value_vars = ['COGS','Lucro'])
-    custo_lucro_data['value_formatado'] = custo_lucro_data['value'].apply(lambda x: f'R$'{X:.2}')
+    custo_lucro_data['value_formatado'] = custo_lucro_data['value'].apply(lambda x: f'R${X:.2}')
                                                 
     gf_custo_lucro = px.bar(
         custo_lucro_data,
         x='Segmento', y= 'value',
-        title='Relação ente custo e Lucro',
+        title='Relação ente Custo e Lucro',
         color='variable',
         barmode='group',
         text_auto=True
