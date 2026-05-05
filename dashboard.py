@@ -41,7 +41,7 @@ def main():
         values = 'Unidades Vendidas', names='Produto',
         title='Distribuição de Produtos Vendidos'
     )
-    custo_lucro_data = data_filtrada(['Segmento'])[['COGS', 'Lucro']].sum().resert_indes().melt(
+    custo_lucro_data = data_filtrada.groupby(['Segmento'])[['COGS', 'Lucro']].sum().resert_indes().melt(
         id_vars = 'Segmento', value_vars = ['COGS','Lucro'])
     custo_lucro_data['value_formatado'] = custo_lucro_data['value'].apply(lambda x: f'R${X:.2}')
                                                 
