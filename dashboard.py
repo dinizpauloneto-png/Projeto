@@ -41,7 +41,7 @@ def main():
         values = 'Unidades Vendidas', names='Produto',
         title='Distribuição de Produtos Vendidos'
     )
-    custo_lucro_data = data_filtrada.groupby(['Segmento'])[['COGS', 'Lucro']].sum().resert_indes().melt(
+    custo_lucro_data = data_filtrada.groupby(['Segmento'])[['COGS', 'Lucro']].sum().reset_index().melt(
         id_vars = 'Segmento', value_vars = ['COGS','Lucro'])
     custo_lucro_data['value_formatado'] = custo_lucro_data['value'].apply(lambda x: f'R${X:.2}')
                                                 
@@ -57,8 +57,8 @@ def main():
     col1, col2 = st.columns(2)
     col3, col4 = st.columns(2)
     col1.plotly_chart(gf_lucro_segmento, use_container_width=True)
-    col2.plothy_chart(gf_vendas_tempo, use_container_width=True)
-    col3.plothy_chart(gf_produtos_vendidos, use_container_width=True)
-    col4.plothy_chart(gt_custo_lucro, use_container_width=True)
+    col2.plotly_chart(gf_vendas_tempo, use_container_width=True)
+    col3.plotly_chart(gf_produtos_vendidos, use_container_width=True)
+    col4.plotly_chart(gf_custo_lucro, use_container_width=True)
 
 main()
