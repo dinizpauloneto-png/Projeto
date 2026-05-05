@@ -61,4 +61,4 @@ def main():
     col3.plothy_chart(gf_produtos_vendidos, use_container_width=True)
     col4.plothy_chart(gt_custo_lucro, use_container_width=True)
 
-    main()
+main()
